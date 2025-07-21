@@ -18,26 +18,19 @@ function glitchText(text: string) {
 }
 
 export default function App() {
-  const [displayText, setDisplayText] = useState('Void');
-  const [glitchOn, setGlitchOn] = useState(false);
+  const text = 'Void';
+  const [displayText, setDisplayText] = useState(text);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setGlitchOn((prev) => !prev);
-      if (!glitchOn) {
-        setDisplayText(glitchText(displayText));
-      } else {
-        setDisplayText(displayText);
-      }
-    }, 150);
-
-    return (): void => clearInterval(interval);
-  }, [glitchOn, displayText]);
-
+  const handleGlitchText = (): void => {
+    setDisplayText(glitchText(text));
+    setTimeout(() => setDisplayText(text), 300);
+  };
   return (
     <main className="min-h-screen w-screen bg-slate-700">
       <header className="text-2xl">
-        <h1>{displayText}</h1>
+        <h1 onMouseEnter={handleGlitchText} onTouchStart={handleGlitchText}>
+          {displayText}
+        </h1>
       </header>
     </main>
   );
