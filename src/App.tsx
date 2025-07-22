@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import { Terminal } from 'lucide-react';
+import { FolderCode, Terminal } from 'lucide-react';
 
 const chars = '!@#$%^&*()_+-=[]{}|;:,.<>?/~';
 
@@ -21,18 +21,38 @@ function glitchText(text: string) {
 interface CircleProps {
   layers: number;
   size: number;
-  color: string;
   colorBase: number;
-  text?: string;
+  text?: React.ReactNode;
 }
-function NestedCircle({ layers, size, color, colorBase, text }: CircleProps) {
-  if (layers === 0) {
-    return <h1 className="text-6xl font-extrabold">{text}</h1>;
+
+function NestedCircle({ layers, size, colorBase, text }: CircleProps) {
+  if (layers === 0 && text) {
+    return <div className="flex items-center justify-center [&>svg]:h-14 [&>svg]:w-14">{text}</div>;
   }
 
-  const currentBg = `{color}-{colorBase}`;
-  return <div></div>;
+  const borderMap: Record<number, string> = {
+    900: 'border-slate-900',
+    800: 'border-slate-800',
+    700: 'border-slate-700',
+    600: 'border-slate-600',
+    500: 'border-slate-500',
+    400: 'border-slate-400',
+    300: 'border-slate-300',
+  };
+  const currentBord = borderMap[colorBase] || 'border-slate-500';
+
+  return (
+    <div
+      className={`flex items-center justify-center rounded-full border-4 ${currentBord}`}
+      style={{ width: size, height: size }}>
+      <NestedCircle layers={layers - 1} size={size - 32} colorBase={colorBase - 100} text={text} />
+    </div>
+  );
 }
+
+// Notação:
+// [&>svg]: -> Define algo nos ícones SVG
+// [&>svg]:h-16 ou [&>svg]:w-16
 
 export default function App() {
   const text = 'Void';
@@ -60,11 +80,7 @@ export default function App() {
       </nav>
 
       <div className="mt-2 flex items-center justify-center">
-        <div className="flex h-40 w-40 items-center justify-center rounded-full border-4 border-slate-700">
-          <div className="flex h-32 w-32 items-center justify-center rounded-full border-4 border-slate-600">
-            <div className="flex h-24 w-24 items-center justify-center rounded-full border-4 border-slate-500"></div>
-          </div>
-        </div>
+        <NestedCircle layers={3} size={160} colorBase={500} text={<FolderCode />} />
       </div>
 
       <div className="relative mt-2 flex items-center justify-center text-2xl font-bold">
