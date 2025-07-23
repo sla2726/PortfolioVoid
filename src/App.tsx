@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import { FolderCode, Terminal } from 'lucide-react';
+import { Bug, Terminal } from 'lucide-react';
 
 const chars = '!@#$%^&*()_+-=[]{}|;:,.<>?/~';
 
@@ -18,38 +18,6 @@ function glitchText(text: string) {
     .join('');
 }
 
-interface CircleProps {
-  layers: number;
-  size: number;
-  colorBase: number;
-  text?: React.ReactNode;
-}
-
-function NestedCircle({ layers, size, colorBase, text }: CircleProps) {
-  if (layers === 0 && text) {
-    return <div className="flex items-center justify-center [&>svg]:h-14 [&>svg]:w-14">{text}</div>;
-  }
-
-  const borderMap: Record<number, string> = {
-    900: 'border-slate-900',
-    800: 'border-slate-800',
-    700: 'border-slate-700',
-    600: 'border-slate-600',
-    500: 'border-slate-500',
-    400: 'border-slate-400',
-    300: 'border-slate-300',
-  };
-  const currentBord = borderMap[colorBase] || 'border-slate-500';
-
-  return (
-    <div
-      className={`flex items-center justify-center rounded-full border-4 ${currentBord}`}
-      style={{ width: size, height: size }}>
-      <NestedCircle layers={layers - 1} size={size - 32} colorBase={colorBase - 100} text={text} />
-    </div>
-  );
-}
-
 // Notação:
 // [&>svg]: -> Define algo nos ícones SVG
 // [&>svg]:h-16 ou [&>svg]:w-16
@@ -58,6 +26,32 @@ export default function App() {
   const text = 'Void';
   const [displayText, setDisplayText] = useState(text);
   const [glitchOn, setGlitchOn] = useState(false);
+
+  const [terminalText, setTerminalText] = useState('');
+  const [showCursor, setShowCursor] = useState(false);
+
+  function typewriterAnimation({ text, speed }: { text: string; speed: number }) {
+    setTerminalText('');
+    let i = 0;
+
+    const timer = setInterval(() => {
+      if (i < text.length) {
+        setTerminalText(text.slice(0, i + 1));
+        i++;
+      } else {
+        clearInterval(timer);
+      }
+    }, speed);
+    return timer;
+  }
+
+  useEffect(() => {
+    typewriterAnimation({ text: 'vvvvvvoid', speed: 500 });
+    const cursorTimer = setInterval(() => {
+      setShowCursor((prev) => !prev);
+    }, 500);
+    return () => clearInterval(cursorTimer);
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -80,7 +74,7 @@ export default function App() {
       </nav>
 
       <div className="mt-2 flex items-center justify-center">
-        <NestedCircle layers={3} size={160} colorBase={500} text={<FolderCode />} />
+        <Bug className="h-12 w-12 bg-gradient-to-r from-amber-800 via-amber-500 to-amber-300" />
       </div>
 
       <div className="relative mt-2 flex items-center justify-center text-2xl font-bold">
@@ -94,6 +88,9 @@ export default function App() {
           <h1 className="relative z-10">{displayText}</h1>
         </div>
       </div>
+      <h1 className="text-6xl">
+        {terminalText} {showCursor && <span>|</span>}
+      </h1>
     </main>
   );
 }
