@@ -37,16 +37,19 @@ export default function App() {
   return (
     <main className="min-h-screen w-screen bg-slate-800">
       <nav className="flex h-10 justify-between bg-slate-700">
-        <h1 className="flex pt-2 pl-1 font-bold">
+        <h1 style={{ fontFamily: 'Oswald, sans-serif' }} className="flex pt-2 pl-1 font-bold">
           <Terminal /> Terminal
         </h1>
       </nav>
 
-      <div className="mt-2 flex items-center justify-center">
-        <Bug className="h-12 w-12 bg-gradient-to-r from-amber-800 via-amber-500 to-amber-300" />
+      <div className="flex items-center justify-center">
+        <div className="mt-2 flex h-16 w-16 items-center justify-center rounded-full border-1 border-red-500 bg-red-500/20 shadow-lg transition-transform duration-300 hover:scale-105">
+          <Bug className="h-12 w-12 text-red-950" />
+        </div>
       </div>
-
-      <div className="relative mt-2 flex items-center justify-center text-2xl font-bold">
+      <div
+        style={{ fontFamily: 'Birthstone, sans-serif' }}
+        className="relative mt-2 flex items-center justify-center text-5xl font-bold">
         <GlitchText text="Void" />
       </div>
       <h1 className="text-6xl">
