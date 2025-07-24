@@ -1,6 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Birthstone&family=Oswald:wght@200..700&display=swap');
 @import "tailwindcss";
 
+:root {
+        --font-family-oswald: 'Oswald', sans-serif;
+        
+}
+@layer utilities {
+  .font-oswald { font-family: var(--font-family-oswald); }
+  .font-birthstone { font-family: var(--font-family-birthstone); }
+}
+
 @keyframes pulse-heartbeat {
     0% {
         transform: scale(1);
