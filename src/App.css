@@ -2,7 +2,8 @@
 @import "tailwindcss";
 
 :root {
-        --font-family-oswald: 'Oswald', sans-serif;
+    --font-family-oswald: 'Oswald', sans-serif;
+    --font-family-birthstone: 'Birthstone', sans-serif;
         
 }
 @layer utilities {

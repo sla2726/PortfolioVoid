@@ -53,20 +53,20 @@ export default function App() {
 
   const hardSkills = [
     { category: 'Linguagem', name: 'JavaScript', experience: 60 },
-    { category: 'Linguagem', name: 'TypeScript', experience: 52 },
+    { category: 'Linguagem', name: 'TypeScript', experience: 60 },
     { category: 'Linguagem', name: 'HTML/CSS', experience: 65 },
     { category: 'Framework', name: 'React.js', experience: 70 },
     { category: 'Framework', name: 'React Native', experience: 40 },
     { category: 'Framework', name: 'Tailwind CSS', experience: 82 },
     { category: 'Ferramenta', name: 'Git', experience: 75 },
-    { category: 'Ferramenta', name: 'Vite', experience: 60 },
+    { category: 'Ferramenta', name: 'Vite', experience: 70 },
     { category: 'Ferramenta', name: 'Expo', experience: 30 },
   ];
 
   return (
     <main className="min-h-screen w-screen bg-gray-950 text-white">
       <nav className="flex justify-between border border-b-red-500 bg-gray-800 py-1 sm:h-10 lg:h-12">
-        <h1 style={{ fontFamily: 'Oswald, sans-serif' }} className="flex pt-2 pl-1 font-bold">
+        <h1 className="flex pt-2 pl-1 font-oswald">
           <Terminal /> Terminal
         </h1>
       </nav>
@@ -92,6 +92,9 @@ export default function App() {
         </h1>
       </section>
 
+      <div className="font-birthstone text-3xl font-bold items-center w-5/6 mx-auto bg-red-800">
+        <GlitchText text="Hard Skills" intervalMs={5000} />
+      </div>
       {hardSkills.map((skill) => (
         <section
           key={skill.name}
