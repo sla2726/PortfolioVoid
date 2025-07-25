@@ -58,15 +58,12 @@ export default function App() {
     { category: 'Framework', name: 'React.js', experience: 70 },
     { category: 'Framework', name: 'React Native', experience: 40 },
     { category: 'Framework', name: 'Tailwind CSS', experience: 82 },
-    { category: 'Ferramenta', name: 'Git', experience: 75 },
-    { category: 'Ferramenta', name: 'Vite', experience: 70 },
-    { category: 'Ferramenta', name: 'Expo', experience: 30 },
   ];
 
   return (
     <main className="min-h-screen w-screen bg-gray-950 text-white">
       <nav className="flex justify-between border border-b-red-500 bg-gray-800 py-1 sm:h-10 lg:h-12">
-        <h1 className="flex pt-2 pl-1 font-oswald">
+        <h1 className="font-oswald flex pt-2 pl-1">
           <Terminal /> Terminal
         </h1>
       </nav>
@@ -92,28 +89,27 @@ export default function App() {
         </h1>
       </section>
 
-      <div className="font-birthstone text-3xl font-bold items-center w-5/6 mx-auto bg-red-800">
-        <GlitchText text="Hard Skills" intervalMs={5000} />
+      <div className="font-birthstone mx-auto w-5/6 text-3xl font-bold">
+        <div className="w-2/5 rounded border border-dotted border-red-500 bg-red-500/60 pl-4">
+          <GlitchText text="Hard Skills" intervalMs={5000} />
+        </div>
       </div>
-      {hardSkills.map((skill) => (
-        <section
-          key={skill.name}
-          className="font-oswald relative mx-auto mt-2 flex w-5/6 flex-col rounded-md border border-dotted border-red-500 bg-slate-950 px-2 py-2 pt-6 transition-transform duration-300 hover:scale-105">
-          <ul className="flex flex-col gap-1">
-            <li className="absolute top-0 left-0 mb-5 rounded-md bg-red-700/60 px-1">
-              {skill.category}
-            </li>
+      
+      <section className="font-oswald relative mx-auto mt-2 flex w-5/6 flex-col rounded-md border border-dotted border-red-500 bg-slate-950 px-2 pb-2 pt-2 transition-transform duration-300 hover:scale-105">
+        {hardSkills.map((skill, index) => (
+          <ul key={skill.name} className="flex flex-col gap-1">
             <li>{skill.name}</li>
-            <li className="h-3 rounded bg-slate-800">
+            
+            <li className="h-3 rounded bg-slate-800 overflow-hidden">
               <div
-                style={{ width: `${skill.experience}%` }}
-                className="flex h-full items-center justify-end rounded bg-gradient-to-r from-red-500/80 to-red-500/60 text-xs">
+                style={{ '--fill-to': `${skill.experience}%`, animationDelay: `${index * 0.3}s` } as React.CSSProperties}
+                className="animate-fill flex h-full items-center justify-end rounded bg-gradient-to-r from-red-500/80 to-red-500/60 text-xs">
                 {skill.experience}%
               </div>
             </li>
           </ul>
-        </section>
-      ))}
+        ))}
+      </section>
     </main>
   );
 }

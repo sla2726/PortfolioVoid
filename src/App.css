@@ -9,7 +9,22 @@
 @layer utilities {
   .font-oswald { font-family: var(--font-family-oswald); }
   .font-birthstone { font-family: var(--font-family-birthstone); }
+    
 }
+
+@keyframes fillBar {
+    from {
+        width: 0%;
+    }
+    to {
+        width: var(--fill-to)
+    }
+}
+.animate-fill {
+    width: 0%;
+    animation: fillBar 1.5s ease-out forwards;
+}
+
 
 @keyframes pulse-heartbeat {
     0% {
@@ -37,3 +52,4 @@
     transform-origin: center;
     will-change: transform;
 }
+
