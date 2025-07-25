@@ -7,7 +7,6 @@ import './App.css';
 // [&>svg]: -> Define algo nos ícones SVG
 // [&>svg]:h-16 ou [&>svg]:w-16
 
-
 export default function App() {
   const [terminalText, setTerminalText] = useState('');
   const [showCursor, setShowCursor] = useState(false);
