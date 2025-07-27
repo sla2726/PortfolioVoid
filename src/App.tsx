@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Bug, Terminal } from 'lucide-react';
 import GlitchText from './components/GlitchText';
+import SkillList from './components/SkillList';
+
 import './App.css';
 
 // Notação:
@@ -51,13 +53,21 @@ export default function App() {
     });
   };
 
-  const hardSkills = [
-    { category: 'Linguagem', name: 'JavaScript', experience: 60 },
-    { category: 'Linguagem', name: 'TypeScript', experience: 60 },
-    { category: 'Linguagem', name: 'HTML/CSS', experience: 65 },
-    { category: 'Framework', name: 'React.js', experience: 70 },
-    { category: 'Framework', name: 'React Native', experience: 40 },
-    { category: 'Framework', name: 'Tailwind CSS', experience: 82 },
+type Skill = {
+  category: string;
+  name: string;
+  exp: number;
+}
+
+  const langs: Skill[] = [
+    { category: 'Linguagens', name: 'JavaScript', exp: 60 },
+    { category: 'Linguagens', name: 'TypeScript', exp: 60 },
+    { category: 'Linguagens', name: 'HTML/CSS', exp: 93 },
+  ];
+  const frameworks: Skill[] = [
+    { category: 'Frameworks', name: 'React', exp: 78 },
+    { category: 'Frameworks', name: 'React Native', exp: 46 },
+    { category: 'Frameworks', name: 'Tailwind CSS', exp: 87 },
   ];
 
   return (
@@ -89,27 +99,8 @@ export default function App() {
         </h1>
       </section>
 
-      <div className="font-birthstone mx-auto w-5/6 text-3xl font-bold">
-        <div className="w-2/5 rounded border border-dotted border-red-500 bg-red-500/60 pl-4">
-          <GlitchText text="Hard Skills" intervalMs={5000} />
-        </div>
-      </div>
+      <SkillList groups={[langs, frameworks]}  />
       
-      <section className="font-oswald relative mx-auto mt-2 flex w-5/6 flex-col rounded-md border border-dotted border-red-500 bg-slate-950 px-2 pb-2 pt-2 transition-transform duration-300 hover:scale-105">
-        {hardSkills.map((skill, index) => (
-          <ul key={skill.name} className="flex flex-col gap-1">
-            <li>{skill.name}</li>
-            
-            <li className="h-3 rounded bg-slate-800 overflow-hidden">
-              <div
-                style={{ '--fill-to': `${skill.experience}%`, animationDelay: `${index * 0.3}s` } as React.CSSProperties}
-                className="animate-fill flex h-full items-center justify-end rounded bg-gradient-to-r from-red-500/80 to-red-500/60 text-xs">
-                {skill.experience}%
-              </div>
-            </li>
-          </ul>
-        ))}
-      </section>
     </main>
   );
 }
