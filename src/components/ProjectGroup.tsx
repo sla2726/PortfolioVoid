@@ -1,3 +1,4 @@
+import { ExternalLink } from 'lucide-react';
 import GlitchText from './GlitchText';
 
 type Project = {
@@ -53,15 +54,17 @@ export default function ProjectGroup({
 
 						<p className="px-2 pt-4">{project.description}</p>
 
+						<div className="flex justify-center items-center">
 						<a
 							href={project.acessLink}
 							target="_blank"
 							rel="noopener noreferrer"
 							aria-label={`Acessar o projeto ${project.name}`}
-							className="w-3/4 bg-red-600/80"
+							className="inline-block text-center w-3/4 bg-red-500/60 border border-red-500"
 							>
-							Acessar projeto
+							<ExternalLink /> Acessar projeto
 						</a>
+						</div>
 					
 					</div>
 				))}
