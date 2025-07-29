@@ -52,7 +52,7 @@ export default function ProjectGroup({
 
 						<p className="px-2 pt-4">{project.description}</p>
 
-						<button
+						<a
 					</div>
 				))}
 			</div>
