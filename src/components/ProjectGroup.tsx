@@ -40,15 +40,19 @@ export default function ProjectGroup({
 								/>
 							))}
 						</div>
-						<div className="flex ml-2 mt-4 h-8 w-auto space-x-6">
+						<div className="mt-4 ml-2 flex h-8 w-auto space-x-6">
 							{project.tecno.map((tek, i) => (
-								<p key={i} className="border-l-4 hover:border hover:border-red-500 border-red-300 rounded-lg p-1 bg-red-400/60">
+								<p
+									key={i}
+									className="rounded-lg border border-l-4 border-red-400 bg-red-500/60 p-1 transition-transform duration-300 hover:scale-105 hover:border-red-500">
 									{tek}
 								</p>
 							))}
 						</div>
 
 						<p className="px-2 pt-4">{project.description}</p>
+
+						<button
 					</div>
 				))}
 			</div>
