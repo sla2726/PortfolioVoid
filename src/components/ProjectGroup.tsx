@@ -5,6 +5,7 @@ type Project = {
 	images: string[];
 	description: string;
 	tecno: string[];
+	acessLink: string;
 };
 
 export default function ProjectGroup({
@@ -53,6 +54,15 @@ export default function ProjectGroup({
 						<p className="px-2 pt-4">{project.description}</p>
 
 						<a
+							href={project.acessLink}
+							target="_blank"
+							rel="noopener noreferrer"
+							aria-label={`Acessar o projeto ${project.name}`}
+							className="w-3/4 bg-red-600/80"
+							>
+							Acessar projeto
+						</a>
+					
 					</div>
 				))}
 			</div>
