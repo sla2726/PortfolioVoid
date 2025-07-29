@@ -13,8 +13,8 @@ export default function SkillGroup({ skills }: { skills: Skill[] }) {
 		<>
 			<section
 				key={category}
-				className="font-oswald relative mx-auto mt-2 flex w-5/6 flex-col rounded-md border border-dotted border-red-500 bg-slate-950 px-2 pt-2 pb-6 transition-transform duration-300 hover:scale-105">
-				<div className="font-birthstone mx-auto w-2/5 text-3xl font-bold">
+				className="font-oswald relative mx-auto mt-2 flex w-5/6 flex-col rounded-md border border-dotted border-red-500 bg-slate-950 px-2 pt-2 pb-4 transition-transform duration-300 hover:scale-105">
+				<div className="font-londrina-solid mx-auto w-2/5 text-3xl font-bold">
 					<div className="flex justify-center rounded border border-dotted border-red-500 bg-red-500/60 uppercase">
 						<GlitchText text={category} intervalMs={5000} />
 					</div>

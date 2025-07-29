@@ -1,15 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Birthstone&family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Birthstone&family=Londrina+Solid:wght@100;300;400;900&family=Oswald:wght@200..700&display=swap');
 @import "tailwindcss";
 
 :root {
     --font-family-oswald: 'Oswald', sans-serif;
     --font-family-birthstone: 'Birthstone', sans-serif;
-        
+    --font-family-londrina-solid: 'Londrina Solid', sans-serif;        
 }
 @layer utilities {
-  .font-oswald { font-family: var(--font-family-oswald); }
-  .font-birthstone { font-family: var(--font-family-birthstone); }
-    
+    .font-oswald { font-family: var(--font-family-oswald); }
+    .font-birthstone { font-family: var(--font-family-birthstone); }
+    .font-londrina-solid { font-family: var(--font-family-londrina-solid); }
 }
 
 @keyframes fillBar {
@@ -51,4 +51,16 @@
     animation: pulse-heartbeat 1s infinite ease-in-out;
     transform-origin: center;
     will-change: transform;
+}
+
+/* global.css */
+.custom-scrollbar::-webkit-scrollbar {
+  height: 8px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: red;
+  border-radius: 8px;
 }
