@@ -21,7 +21,7 @@ export default function ProjectGroup({
 	return (
 		<section
 			key={name}
-			className="font-oswald relative mx-auto mt-2 flex w-5/6 flex-col rounded-md border border-dotted border-red-500 bg-slate-950 px-2 pt-2 pb-4 transition-transform duration-300 hover:scale-105 md:border-2 lg:border-2">
+			className="font-oswald relative mx-auto mt-2 flex w-5/6 flex-col rounded-md border border-dotted border-red-500 bg-slate-950 px-2 pt-2 pb-4 transition-transform duration-300 hover:scale-105 default-border">
 			<div className="font-londrina-solid mx-auto w-2/5 text-3xl font-bold">
 				<div className="flex justify-center rounded border border-dotted border-red-500 bg-red-500/60 uppercase">
 					<GlitchText text={name} intervalMs={5000} />
