@@ -52,20 +52,18 @@ export default function ProjectGroup({
 							))}
 						</div>
 
-						<p className="px-2 pt-4">{project.description}</p>
+						<p className="px-2 mb-2 pt-4">{project.description}</p>
 
-						<div className="flex justify-center items-center">
-						<a
-							href={project.acessLink}
-							target="_blank"
-							rel="noopener noreferrer"
-							aria-label={`Acessar o projeto ${project.name}`}
-							className="inline-block text-center w-3/4 bg-red-500/60 border border-red-500"
-							>
-							<ExternalLink /> Acessar projeto
-						</a>
+						<div className="flex- flex items-center justify-center">
+							<a
+								href={project.acessLink}
+								target="_blank"
+								rel="noopener noreferrer"
+								aria-label={`Acessar o projeto ${project.name}`}
+								className="inline-flex w-3/4 items-center justify-center gap-2 border rounded-md border-red-500 bg-red-500/60 py-2 text-center transition-transform duration-300 hover:scale-105">
+								<ExternalLink /> Acessar projeto
+							</a>
 						</div>
-					
 					</div>
 				))}
 			</div>

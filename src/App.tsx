@@ -1,5 +1,6 @@
-import { useEffect, useState, useMemo } from 'react';
-import { Bug, Terminal } from 'lucide-react';
+import { useEffect, useState, useMemo, useRef } from 'react';
+import { Bug, Terminal, User, AtSign, MessageSquareMore } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 import './App.css';
 import GlitchText from './components/GlitchText';
 import SkillList from './components/SkillList';
@@ -85,7 +86,22 @@ export default function App() {
 
   const [selectedImage, setSelectedImage] = useState<string[] | null>(null);
 
-  
+  // Emailjs
+  const form = useRef<HTMLFormElement>(null);
+  const sendMail = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!form.current) {
+      alert('Certifique-se de preencher todos os campos!');
+      return;
+    }
+
+    emailjs.sendForm('service_pn0wzof', 'template_vomt28g', form.current, 'nvQ6zma3laIAZpCbg').then(
+      () => alert('Mensagem enviada com sucesso!'),
+      (error) => alert('Erro ao enviar mensagem! Tente novamente.' + error.text)
+    );
+  };
+
   if (isLoading) {
     return (
       <main className="min-h-screen w-screen bg-gray-950 text-white">
@@ -176,6 +192,35 @@ export default function App() {
           </div>
         </div>
       )}
+
+      <div className="mt-8 mb-8 flex w-full items-center justify-center">
+        <form
+          ref={form}
+          onSubmit={sendMail}
+          className="relative z-10 flex w-3/4 flex-col items-center justify-center space-y-4 rounded-md bg-slate-900 border border-dotted border-red-500 px-2 py-4">
+          <input
+            name="user_name"
+            placeholder="Seu nome..."
+            className="w-3/4 rounded-md p-2 border-2 border-dotted border-red-500 focus:outline-none focus:ring-2 focus:ring-red-500"
+            required
+          />
+          <input
+            name="user_email"
+            placeholder="Seu email..."
+            className="w-3/4 rounded-md p-2 border-2 border-dotted border-red-500 focus:outline-none focus:ring-2 focus:ring-red-500"
+            required
+          />
+          <input
+            name="message"
+            placeholder="Sua mensagem..."
+            className="h-16 w-3/4 rounded-md p-2 border-2 border-dotted border-red-500 focus:outline-none focus:ring-2 focus:ring-red-500"
+            required
+          />
+          <button type="submit" className="w-3/4 rounded-md bg-red-500">
+            Enviar
+          </button>
+        </form>
+      </div>
     </main>
   );
 }
