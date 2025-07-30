@@ -21,7 +21,7 @@ export default function ProjectGroup({
 	return (
 		<section
 			key={name}
-			className="font-oswald relative mx-auto mt-2 flex w-5/6 flex-col rounded-md border border-dotted border-red-500 bg-slate-950 px-2 pt-2 pb-4 transition-transform duration-300 hover:scale-105">
+			className="font-oswald relative mx-auto mt-2 flex w-5/6 flex-col rounded-md border border-dotted border-red-500 bg-slate-950 px-2 pt-2 pb-4 transition-transform duration-300 hover:scale-105 md:border-2 lg:border-2">
 			<div className="font-londrina-solid mx-auto w-2/5 text-3xl font-bold">
 				<div className="flex justify-center rounded border border-dotted border-red-500 bg-red-500/60 uppercase">
 					<GlitchText text={name} intervalMs={5000} />
@@ -52,7 +52,7 @@ export default function ProjectGroup({
 							))}
 						</div>
 
-						<p className="px-2 mb-2 pt-4">{project.description}</p>
+						<p className="mb-2 px-2 pt-4">{project.description}</p>
 
 						<div className="flex- flex items-center justify-center">
 							<a
@@ -60,7 +60,7 @@ export default function ProjectGroup({
 								target="_blank"
 								rel="noopener noreferrer"
 								aria-label={`Acessar o projeto ${project.name}`}
-								className="inline-flex w-3/4 items-center justify-center gap-2 border rounded-md border-red-500 bg-red-500/60 py-2 text-center transition-transform duration-300 hover:scale-105">
+								className="inline-flex w-3/4 items-center justify-center gap-2 rounded-md border border-red-500 bg-red-500/60 py-2 text-center transition-transform duration-300 hover:scale-105">
 								<ExternalLink /> Acessar projeto
 							</a>
 						</div>

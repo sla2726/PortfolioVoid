@@ -145,7 +145,7 @@ export default function App() {
         </h1>
       </nav>
 
-      <header className="relative z-10 mx-auto mt-20 w-3/4 rounded-md border border-dotted border-red-500 bg-slate-950 px-2 py-2 transition-transform duration-300 hover:scale-105">
+      <header className="relative z-10 mx-auto mt-20 w-3/4 rounded-md border border-dotted border-red-500 bg-slate-950 px-2 py-2 transition-transform duration-300 hover:scale-105 md:border-2 lg:border-2">
         <div className="flex items-center justify-center">
           <div className="mt-2 flex h-16 w-16 items-center justify-center rounded-full border border-red-500 bg-gradient-to-br from-red-900 to-red-800/10 shadow-lg transition-transform duration-300 hover:scale-105">
             <Bug className="h-12 w-12 text-red-500" />
@@ -159,19 +159,19 @@ export default function App() {
         </div>
       </header>
 
-      <section className="relative z-10 mx-auto mt-12 mb-12 w-4/5 rounded-md border border-dotted border-red-500 bg-slate-950 px-2 py-2 transition-transform duration-300 hover:scale-105">
+      <section className="relative z-10 mx-auto mt-12 mb-12 w-4/5 rounded-md border border-dotted border-red-500 bg-slate-950 px-2 py-2 transition-transform duration-300 hover:scale-105 md:border-2 lg:border-2">
         <h1 style={{ fontFamily: 'Oswald, sans-serif' }} className="text-2xl">
           <BoldChars text={terminalText} wordsToBold={['sites', 'aplicativos']} />{' '}
           {showCursor && <span>|</span>}
         </h1>
       </section>
 
-      <h1 className="font-londrina-solid relative z-10 mx-auto mt-16 mb-4 w-2/4 border border-dotted border-red-500 bg-slate-950 py-2 text-center text-4xl font-bold italic">
+      <h1 className="font-londrina-solid relative z-10 mx-auto mt-16 mb-4 w-2/4 border border-dotted border-red-500 bg-slate-950 py-2 text-center text-4xl font-bold italic md:border-2 lg:border-2">
         Hard Skills
       </h1>
       <SkillList groups={[langs, frameworks]} />
 
-      <h1 className="font-londrina-solid relative z-10 mx-auto mt-16 mb-6 w-2/4 border border-dotted border-red-500 bg-slate-950 py-2 text-center text-4xl font-bold italic">
+      <h1 className="font-londrina-solid relative z-10 mx-auto mt-16 mb-6 w-2/4 border border-dotted border-red-500 bg-slate-950 py-2 text-center text-4xl font-bold italic md:border-2 lg:border-2">
         Projetos
       </h1>
       <ProjectGroup projects={projects} onImageClick={setSelectedImage} />
@@ -197,25 +197,34 @@ export default function App() {
         <form
           ref={form}
           onSubmit={sendMail}
-          className="relative z-10 flex w-3/4 flex-col items-center justify-center space-y-4 rounded-md bg-slate-900 border border-dotted border-red-500 px-2 py-4">
-          <input
-            name="user_name"
-            placeholder="Seu nome..."
-            className="w-3/4 rounded-md p-2 border-2 border-dotted border-red-500 focus:outline-none focus:ring-2 focus:ring-red-500"
-            required
-          />
-          <input
-            name="user_email"
-            placeholder="Seu email..."
-            className="w-3/4 rounded-md p-2 border-2 border-dotted border-red-500 focus:outline-none focus:ring-2 focus:ring-red-500"
-            required
-          />
-          <input
-            name="message"
-            placeholder="Sua mensagem..."
-            className="h-16 w-3/4 rounded-md p-2 border-2 border-dotted border-red-500 focus:outline-none focus:ring-2 focus:ring-red-500"
-            required
-          />
+          className="relative z-10 flex w-3/4 flex-col items-center justify-center space-y-4 rounded-md border border-dotted border-red-500 bg-slate-900 px-2 py-4 md:border-2 lg:border-2">
+          <div className="relative flex w-3/4 items-center">
+            <User className="absolute left-3 text-gray-500" />
+            <input
+              name="user_name"
+              placeholder="Seu nome..."
+              className="w-full rounded-md border-2 border-dotted border-red-500 p-2 pl-10 focus:ring-2 focus:ring-red-500 focus:outline-none"
+              required
+            />
+          </div>
+          <div className="relative flex w-3/4 items-center">
+            <AtSign className="absolute left-3 text-gray-500" />
+            <input
+              name="user_email"
+              placeholder="Seu email..."
+              className="w-full rounded-md border-2 border-dotted border-red-500 p-2 pl-10 focus:ring-2 focus:ring-red-500 focus:outline-none"
+              required
+            />
+          </div>
+          <div className="relative flex w-3/4 items-center">
+            <MessageSquareMore className="absolute top-3 left-3 text-gray-500" />
+            <textarea
+              name="message"
+              placeholder="Sua mensagem..."
+              className="h-16 w-full rounded-md border-2 border-dotted border-red-500 p-2 pl-10 focus:ring-2 focus:ring-red-500 focus:outline-none"
+              required
+            />
+          </div>
           <button type="submit" className="w-3/4 rounded-md bg-red-500">
             Enviar
           </button>
