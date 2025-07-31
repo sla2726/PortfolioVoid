@@ -97,7 +97,10 @@ export default function App() {
     }
 
     emailjs.sendForm('service_pn0wzof', 'template_vomt28g', form.current, 'nvQ6zma3laIAZpCbg').then(
-      () => alert('Mensagem enviada com sucesso!'),
+      () => {
+        alert('Mensagem enviada com sucesso!');
+        form.current?.reset();
+      },
       (error) => alert('Erro ao enviar mensagem! Tente novamente.' + error.text)
     );
   };
@@ -111,10 +114,10 @@ export default function App() {
             <div className="h-6 w-96 max-w-xs md:max-w-md lg:max-w-lg">
               <div
                 style={{ width: `${Math.min(progress, 100)}%` }}
-                className="h-full rounded-full bg-gradient-to-r from-red-500 to-blue-500 transition-all duration-500"
+                className="h-full rounded-full bg-gradient-to-r from-red-500/70 to-slate-600/80 transition-all duration-500"
               />
             </div>
-            <p className="mt-4 font-mono text-3xl font-bold text-green-500 md:text-5xl lg:text-6xl">
+            <p className="mt-4 font-mono text-2xl font-bold text-green-500 md:text-3xl lg:text-3xl">
               {typedText}
             </p>
           </div>
@@ -187,21 +190,21 @@ export default function App() {
                 key={i}
                 alt={`Screenshot ${i + 1}`}
                 src={img}
-                className="pointer-events-none mx-2 inline-block max-h-[250px] rounded-lg object-cover"
+                className="pointer-events-none mx-2 inline-block max-h-[300px] rounded-lg object-cover md:max-h-[500px] lg:max-h-[500px]"
               />
             ))}
           </div>
         </div>
       )}
 
-      <h1 className="mt-16 mb-8 font-londrina-solid default-border relative z-10 mx-auto w-2/4 bg-slate-950 py-2 text-center text-4xl font-bold italic">
+      <h1 className="font-londrina-solid default-border relative z-10 mx-auto mt-16 mb-8 w-2/4 bg-slate-950 py-2 text-center text-4xl font-bold italic">
         Contato | E-mail
       </h1>
-<div className="flex w-full items-center justify-center">
+      <div className="flex w-full items-center justify-center">
         <form
           ref={form}
           onSubmit={sendMail}
-          className="default-border relative z-10 flex w-3/4 flex-col items-center justify-center space-y-4 rounded-md bg-slate-950 px-2 py-4 transition-transform duration-300 hover:scale-105">
+          className="default-border font-oswald relative z-10 mb-8 flex w-3/4 flex-col items-center justify-center space-y-4 rounded-md bg-slate-950 px-2 py-4 transition-transform duration-300 hover:scale-105">
           <div className="relative flex w-3/4 items-center">
             <User className="absolute left-3 text-gray-500" />
             <input
@@ -236,6 +239,10 @@ export default function App() {
               className="w-full rounded-md border border-red-500 bg-red-500/60 py-2 transition-transform duration-300 hover:scale-105 hover:border-2">
               Enviar
             </button>
+          </div>
+          <div className="flex flex-col p-2">
+            <p>Meu e-mail caso queira manualmente: </p>
+            <span className="text-red-500">fabiodasilvajuniosilva@gmail.com</span>
           </div>
         </form>
       </div>
