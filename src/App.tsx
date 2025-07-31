@@ -14,7 +14,7 @@ import { projects } from './data/projects';
 // [&>svg]:h-16 ou [&>svg]:w-16
 
 export default function App() {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [typedText, setTypedText] = useState('');
   const [progress, setProgress] = useState(0);
 
@@ -110,7 +110,7 @@ export default function App() {
       <main className="min-h-screen w-screen bg-gray-950 text-white">
         <div className="flex min-h-screen w-full items-center justify-center bg-gray-950 text-white">
           <div className="flex flex-col items-center justify-center">
-            <h1 className="font-londrina-solid text-9xl font-bold uppercase">Void</h1>
+            <h1 className="font-londrina-solid text-9xl font-bold uppercase">Vvoid</h1>
             <div className="h-6 w-96 max-w-xs md:max-w-md lg:max-w-lg">
               <div
                 style={{ width: `${Math.min(progress, 100)}%` }}
@@ -159,7 +159,7 @@ export default function App() {
         <div
           style={{ fontFamily: 'Birthstone, sans-serif' }}
           className="relative mt-2 flex items-center justify-center text-5xl font-bold">
-          <GlitchText text="Void" />
+          <GlitchText text="Vvoid" />
         </div>
       </header>
 
