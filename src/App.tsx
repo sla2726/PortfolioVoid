@@ -125,6 +125,7 @@ export default function App() {
   return (
     <main className="relative min-h-screen w-screen bg-gradient-to-br from-black to-gray-900 text-white transition-transform duration-300">
       <div className="absolute inset-0">
+        <img src="/image/anti-spiral.png" />
         {backgroundDots.map((dot) => (
           <div
             key={dot.id}
@@ -145,7 +146,7 @@ export default function App() {
         </h1>
       </nav>
 
-      <header className="default-border relative z-10 mx-auto mt-20 w-3/4 rounded-md bg-slate-950 px-2 py-2 transition-transform duration-300 hover:scale-105">
+      <header className="default-border relative z-10 mx-auto mt-14 w-3/4 rounded-md bg-slate-950 px-2 py-2 transition-transform duration-300 hover:scale-105">
         <div className="flex items-center justify-center">
           <div className="mt-2 flex h-16 w-16 items-center justify-center rounded-full border border-red-500 bg-gradient-to-br from-red-900 to-red-800/10 shadow-lg transition-transform duration-300 hover:scale-105">
             <Bug className="h-12 w-12 text-red-500" />
@@ -159,7 +160,7 @@ export default function App() {
         </div>
       </header>
 
-      <section className="default-border relative z-10 mx-auto mt-12 mb-12 w-4/5 rounded-md bg-slate-950 px-2 py-2 transition-transform duration-300 hover:scale-105">
+      <section className="default-border relative z-10 mx-auto mt-18 mb-12 w-4/5 rounded-md bg-slate-950 px-2 py-2 transition-transform duration-300 hover:scale-105">
         <h1 style={{ fontFamily: 'Oswald, sans-serif' }} className="text-2xl">
           <BoldChars text={terminalText} wordsToBold={['sites', 'aplicativos']} />{' '}
           {showCursor && <span>|</span>}
@@ -194,7 +195,7 @@ export default function App() {
       )}
 
       <h1 className="mt-16 mb-8 font-londrina-solid default-border relative z-10 mx-auto w-2/4 bg-slate-950 py-2 text-center text-4xl font-bold italic">
-        Contato
+        Contato | E-mail
       </h1>
 <div className="flex w-full items-center justify-center">
         <form
