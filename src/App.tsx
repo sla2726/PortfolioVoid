@@ -14,7 +14,7 @@ import { projects } from './data/projects';
 // [&>svg]:h-16 ou [&>svg]:w-16
 
 export default function App() {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [typedText, setTypedText] = useState('');
   const [progress, setProgress] = useState(0);
 
@@ -110,7 +110,7 @@ export default function App() {
       <main className="min-h-screen w-screen bg-gray-950 text-white">
         <div className="flex min-h-screen w-full items-center justify-center bg-gray-950 text-white">
           <div className="flex flex-col items-center justify-center">
-            <h1 className="font-birthstone text-9xl font-bold uppercase">Void</h1>
+            <h1 className="font-londrina-solid text-9xl font-bold uppercase">Void</h1>
             <div className="h-6 w-96 max-w-xs md:max-w-md lg:max-w-lg">
               <div
                 style={{ width: `${Math.min(progress, 100)}%` }}
@@ -128,7 +128,7 @@ export default function App() {
   return (
     <main className="relative min-h-screen w-screen bg-gradient-to-br from-black to-gray-900 text-white transition-transform duration-300">
       <div className="absolute inset-0">
-        <img src="/image/anti-spiral.png" />
+        <img className="absolute md:right-0 lg:right-0" src="/image/anti-spiral.png" />
         {backgroundDots.map((dot) => (
           <div
             key={dot.id}
@@ -235,12 +235,13 @@ export default function App() {
           <div className="relative flex w-3/4 items-center">
             <SendHorizontal className="absolute left-3 text-gray-500 text-white" />
             <button
+              aria-label="Enviar mensagem"
               type="submit"
               className="w-full rounded-md border border-red-500 bg-red-500/60 py-2 transition-transform duration-300 hover:scale-105 hover:border-2">
               Enviar
             </button>
           </div>
-          <div className="flex flex-col p-2">
+          <div className="flex flex-col p-2 md:text-2xl lg:text-2xl">
             <p>Meu e-mail caso queira manualmente: </p>
             <span className="text-red-500">fabiodasilvajuniosilva@gmail.com</span>
           </div>
