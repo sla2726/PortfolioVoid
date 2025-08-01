@@ -52,7 +52,7 @@ export default function ProjectGroup({
 							))}
 						</div>
 
-						<p className="mb-2 px-2 pt-4">{project.description}</p>
+						<p className="mb-2 px-2 pt-4 md:text-2xl">{project.description}</p>
 
 						<div className="flex- flex items-center justify-center">
 							<a
@@ -60,7 +60,7 @@ export default function ProjectGroup({
 								target="_blank"
 								rel="noopener noreferrer"
 								aria-label={`Acessar o projeto ${project.name}`}
-								className="inline-flex w-3/4 items-center justify-center gap-2 rounded-md border border-red-500 bg-red-500/60 py-2 text-center transition-transform duration-300 hover:scale-105">
+								className="inline-flex w-3/4 items-center justify-center gap-2 rounded-md border border-red-500 bg-red-500/60 py-2 text-center transition-transform duration-300 hover:scale-105 md:text-2xl">
 								<ExternalLink /> Acessar projeto
 							</a>
 						</div>

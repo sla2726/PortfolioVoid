@@ -178,21 +178,57 @@ export default function App() {
 
         <div className="mt-12 animate-bounce">
           <div className="relative flex flex-col items-center justify-center">
-            <ChevronDown size={36} className="absolute mb-2 text-red-500" />
-            <ChevronDown size={48} className="relative text-red-500" />
+            <ChevronDown size={36} className="absolute mb-2 text-red-500 md:mb-4 md:h-14 md:w-14" />
+            <ChevronDown size={48} className="relative text-red-500 md:h-18 md:w-18" />
           </div>
         </div>
       </header>
 
-      <h1 className="font-londrina-solid default-border relative z-10 mx-auto mt-16 mb-4 w-2/4 bg-slate-950 py-2 text-center text-4xl font-bold italic">
-        Hard Skills
-      </h1>
-      <SkillList groups={[langs, frameworks]} />
+      <section className="relative z-10 flex flex-col items-center justify-center bg-gradient-to-br from-slate-950/70 to-gray-900/80 py-8 ring-1 ring-red-500/20">
+        <h1 className="default-border font-londrina-solid md:4xl mb-8 w-2/4 bg-slate-950 text-center text-3xl">
+          Sobre Mim
+        </h1>
+        <div className="font-oswald default-border w-3/4 space-y-2 rounded-md bg-slate-950 px-4 py-2 transition-transform duration-300 hover:scale-105 md:text-2xl">
+          <p>Sou apenas um desenvolvedor apaixonado por tecnologia.</p>
+          <p>
+            Sério, já parou pra pensar em como a programação é surreal? Desde as linguagens de alto
+            nível até o funcionamento por trás da linguagem de máquina.
+          </p>
+          <p>
+            Reflexões à parte, venho brincando com código há pelo menos dois anos, mas comecei a
+            levar a sério mesmo há cerca de quatro meses.
+          </p>
+          <p>
+            Iniciei minha jornada com Python para aprender a lógica da programação. Depois,
+            mergulhei em HTML, CSS e JavaScript — já com um projeto em mãos para uns amigos. Projeto
+            esse que, sinceramente, prefiro não mostrar... o código parece um manuscrito antigo. Eu
+            não tinha sequer duas semanas de experiência.
+          </p>
+          <p>
+            Atualmente, uso React e Tailwind no desenvolvimento. São duas tecnologias que, além de
+            bem documentadas, me oferecem agilidade e praticidade — Tailwind que o diga.
+          </p>
+          <p>
+            Uma das minhas maiores características é o quanto me entrego aos projetos. Sem exagero,
+            é surreal. Sobre meu tempo de experiência: pode parecer curto, mas vale lembrar que
+            estudo ou pratico de 2 a 4 horas por dia, quase todos os dias.
+          </p>
+        </div>
+      </section>
 
-      <h1 className="font-londrina-solid default-border relative z-10 mx-auto mt-16 mb-6 w-2/4 bg-slate-950 py-2 text-center text-4xl font-bold italic">
-        Projetos
-      </h1>
-      <ProjectGroup projects={projects} onImageClick={setSelectedImage} />
+      <section className="relative z-10 mt-20">
+        <h1 className="font-londrina-solid default-border mx-auto w-2/4 mb-4 bg-slate-950 py-2 text-center text-3xl font-bold italic">
+          Hard Skills
+        </h1>
+        <SkillList groups={[langs, frameworks]} />
+      </section>
+
+      <section className="bg-gradient-to-br from-slate-950/70 mt-20 to-gray-900/80 py-8 ring-1 ring-red-500/20 relative z-10">
+        <h1 className="font-londrina-solid default-border mx-auto mb-6 w-2/4 bg-slate-950 py-2 text-center text-3xl font-bold italic">
+          Projetos
+        </h1>
+        <ProjectGroup projects={projects} onImageClick={setSelectedImage} />
+      </section>
 
       {selectedImage && (
         <div
@@ -211,10 +247,10 @@ export default function App() {
         </div>
       )}
 
-      <h1 className="font-londrina-solid default-border relative z-10 mx-auto mt-16 mb-8 w-2/4 bg-slate-950 py-2 text-center text-4xl font-bold italic">
+      <h1 className="font-londrina-solid default-border relative z-10 mx-auto mt-16 mb-8 w-2/4 bg-slate-950 py-2 text-center text-3xl font-bold italic">
         Contato | E-mail
       </h1>
-      <div className="flex w-full items-center justify-center">
+      <div className="flex w-full items-center justify-center md:text-2xl">
         <form
           ref={form}
           onSubmit={sendMail}

@@ -22,7 +22,7 @@ export default function SkillGroup({ skills }: { skills: Skill[] }) {
 
 				{skills.map((skill, index) => (
 					<ul className="flex flex-col gap-1">
-						<li>{skill.name}</li>
+						<li className="md:text-2xl">{skill.name}</li>
 
 						<li className="h-3 overflow-hidden rounded bg-slate-800">
 							<div
