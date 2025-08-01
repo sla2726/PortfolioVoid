@@ -149,7 +149,7 @@ export default function App() {
         </h1>
       </nav>
 
-      <header className="default-border relative z-10 mx-auto mt-14 w-3/4 rounded-md bg-slate-950 px-2 py-2 transition-transform duration-300 hover:scale-105">
+      <header className="default-border relative z-10 mx-auto mt-48 w-3/4 rounded-md bg-slate-950 px-2 py-2 transition-transform duration-300 hover:scale-105">
         <div className="flex items-center justify-center">
           <div className="mt-2 flex h-16 w-16 items-center justify-center rounded-full border border-red-500 bg-gradient-to-br from-red-900 to-red-800/10 shadow-lg transition-transform duration-300 hover:scale-105">
             <Bug className="h-12 w-12 text-red-500" />
@@ -158,7 +158,7 @@ export default function App() {
 
         <div
           style={{ fontFamily: 'Birthstone, sans-serif' }}
-          className="relative mt-2 flex items-center justify-center text-5xl font-bold">
+          className="relative flex items-center justify-center text-5xl font-bold">
           <GlitchText text="Vvoid" />
         </div>
       </header>
