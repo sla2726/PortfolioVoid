@@ -127,8 +127,8 @@ export default function App() {
   }
   return (
     <main className="relative min-h-screen w-screen bg-gradient-to-br from-black to-gray-900 text-white transition-transform duration-300">
-      <div className="absolute inset-0">
-        <img className="absolute md:right-0 lg:right-0" src="/image/anti-spiral.png" />
+      <div className="absolute inset-0 ">
+        <img className="absolute md:min-h-screen md:right-0 lg:right-0" src="/image/anti-spiral.png" />
         {backgroundDots.map((dot) => (
           <div
             key={dot.id}
@@ -149,26 +149,26 @@ export default function App() {
         </h1>
       </nav>
 
-      <header className="default-border relative z-10 mx-auto mt-48 w-3/4 rounded-md bg-slate-950 px-2 py-2 transition-transform duration-300 hover:scale-105">
-        <div className="flex items-center justify-center">
-          <div className="mt-2 flex h-16 w-16 items-center justify-center rounded-full border border-red-500 bg-gradient-to-br from-red-900 to-red-800/10 shadow-lg transition-transform duration-300 hover:scale-105">
-            <Bug className="h-12 w-12 text-red-500" />
+      <header className="relative z-10 flex min-h-screen flex-col items-center justify-center">
+        <section className="default-border mx-auto w-3/4 rounded-md bg-slate-950 px-2 py-2 transition-transform duration-300 hover:scale-105">
+          <div className="flex items-center justify-center">
+            <div className="my-2 md:my-6 lg:my-6 flex h-16 w-16 items-center justify-center rounded-full border border-red-500 bg-gradient-to-br from-red-900 to-red-800/10 shadow-lg transition-transform duration-300 hover:scale-105">
+              <Bug className="h-12 w-12 text-red-500" />
+            </div>
           </div>
-        </div>
 
-        <div
-          style={{ fontFamily: 'Birthstone, sans-serif' }}
-          className="relative flex items-center justify-center text-5xl font-bold">
-          <GlitchText text="Vvoid" />
-        </div>
+          <div className="font-birthstone relative flex items-center justify-center text-5xl font-bold">
+            <GlitchText text="Vvoid" />
+          </div>
+        </section>
+
+        <section className="default-border relative z-10 mx-auto mt-18 mb-12 w-4/5 rounded-md bg-slate-950 px-2 py-2 transition-transform duration-300 hover:scale-105">
+          <h1 className="font-oswald text-2xl">
+            <BoldChars text={terminalText} wordsToBold={['sites', 'aplicativos']} />{' '}
+            {showCursor && <span>|</span>}
+          </h1>
+        </section>
       </header>
-
-      <section className="default-border relative z-10 mx-auto mt-18 mb-12 w-4/5 rounded-md bg-slate-950 px-2 py-2 transition-transform duration-300 hover:scale-105">
-        <h1 style={{ fontFamily: 'Oswald, sans-serif' }} className="text-2xl">
-          <BoldChars text={terminalText} wordsToBold={['sites', 'aplicativos']} />{' '}
-          {showCursor && <span>|</span>}
-        </h1>
-      </section>
 
       <h1 className="font-londrina-solid default-border relative z-10 mx-auto mt-16 mb-4 w-2/4 bg-slate-950 py-2 text-center text-4xl font-bold italic">
         Hard Skills
