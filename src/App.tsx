@@ -16,12 +16,15 @@ import BoldChars from './components/utils/BoldChars';
 import ProjectGroup from './components/ProjectGroup';
 import { langs, frameworks } from './data/skills';
 import { projects } from './data/projects';
+import { socialLinks } from './data/social-links';
+
 
 // Notação:
 // [&>svg]: -> Define algo nos ícones SVG
 // [&>svg]:h-16 ou [&>svg]:w-16
 
 export default function App() {
+  
   const [isLoading, setIsLoading] = useState(false);
   const [typedText, setTypedText] = useState('');
   const [progress, setProgress] = useState(0);
@@ -217,13 +220,13 @@ export default function App() {
       </section>
 
       <section className="relative z-10 mt-20">
-        <h1 className="font-londrina-solid default-border mx-auto w-2/4 mb-4 bg-slate-950 py-2 text-center text-3xl font-bold italic">
+        <h1 className="font-londrina-solid default-border mx-auto mb-4 w-2/4 bg-slate-950 py-2 text-center text-3xl font-bold italic">
           Hard Skills
         </h1>
         <SkillList groups={[langs, frameworks]} />
       </section>
 
-      <section className="bg-gradient-to-br from-slate-950/70 mt-20 to-gray-900/80 py-8 ring-1 ring-red-500/20 relative z-10">
+      <section className="relative z-10 mt-20 bg-gradient-to-br from-slate-950/70 to-gray-900/80 py-8 ring-1 ring-red-500/20">
         <h1 className="font-londrina-solid default-border mx-auto mb-6 w-2/4 bg-slate-950 py-2 text-center text-3xl font-bold italic">
           Projetos
         </h1>
@@ -250,11 +253,11 @@ export default function App() {
       <h1 className="font-londrina-solid default-border relative z-10 mx-auto mt-16 mb-8 w-2/4 bg-slate-950 py-2 text-center text-3xl font-bold italic">
         Contato | E-mail
       </h1>
-      <div className="flex w-full items-center justify-center md:text-2xl">
+      <section className="relative z-10 flex w-full items-center justify-center md:text-2xl">
         <form
           ref={form}
           onSubmit={sendMail}
-          className="default-border font-oswald relative z-10 mb-8 flex w-3/4 flex-col items-center justify-center space-y-4 rounded-md bg-slate-950 px-2 py-4 transition-transform duration-300 hover:scale-105">
+          className="default-border font-oswald mb-8 flex w-3/4 flex-col items-center justify-center space-y-4 rounded-md bg-slate-950 px-2 py-4 transition-transform duration-300 hover:scale-105">
           <div className="relative flex w-3/4 items-center">
             <User className="absolute left-3 text-gray-500" />
             <input
@@ -296,7 +299,15 @@ export default function App() {
             <span className="text-red-500">fabiodasilvajuniosilva@gmail.com</span>
           </div>
         </form>
-      </div>
+        <div>
+          
+          {socialLinks.map((social, i) => (
+            <div key={i}>
+              <a href={social.link} target="_blank" rel="noopener noreferrer">{social.icon}</a>
+            </div>
+          ))}
+        </div>
+      </section>
     </main>
   );
 }
