@@ -1,3 +1,4 @@
+import React from 'react';
 import { useEffect, useState, useMemo, useRef } from 'react';
 import {
   Bug,
@@ -18,13 +19,11 @@ import { langs, frameworks } from './data/skills';
 import { projects } from './data/projects';
 import { socialLinks } from './data/social-links';
 
-
 // Notação:
 // [&>svg]: -> Define algo nos ícones SVG
 // [&>svg]:h-16 ou [&>svg]:w-16
 
 export default function App() {
-  
   const [isLoading, setIsLoading] = useState(false);
   const [typedText, setTypedText] = useState('');
   const [progress, setProgress] = useState(0);
@@ -298,15 +297,21 @@ export default function App() {
             <p>Meu e-mail caso queira manualmente: </p>
             <span className="text-red-500">fabiodasilvajuniosilva@gmail.com</span>
           </div>
+
+          <div className="flex items-center space-x-2 justify-center">
+            {socialLinks.map((social, i) => {
+              const Icon = social.icon;
+              return (
+                <div key={i}>
+                  <a className="transition-all duration-300 hover:text-red-500 md:text-2xl" href={social.link} target="_blank" rel="noopener noreferrer">
+                    <Icon className="text-2xl"/>
+                  </a>
+                </div>
+              );
+            })}
+          </div>
         </form>
-        <div>
-          
-          {socialLinks.map((social, i) => (
-            <div key={i}>
-              <a href={social.link} target="_blank" rel="noopener noreferrer">{social.icon}</a>
-            </div>
-          ))}
-        </div>
+        
       </section>
     </main>
   );
