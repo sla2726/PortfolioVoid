@@ -13,4 +13,11 @@ export const projects: Project[] = [
     tecno: ['React', 'React Router', 'Tailwindcss', 'JavaScript'],
     acessLink: 'https://yamine-web-bot.vercel.app'
   },
+  {
+    name: 'Key Manager',
+    images: ['/image/keyManager-lobby.jpg', '/image/keyManager-menu.jpg', '/image/keyManager-generateScreen.jpg' ],
+    description: 'Um aplicativo que desenvolvi por uma necessidade minha. Um simples gerenciador de senhas. Possui salvamento local, adição e edição de senhas, um gerador automático de senhas (com verificação de segurança) e muitas outras futuras adições',
+    tecno: ['React', 'React Native', 'TypeScript', 'Nativewind(Tailwindcss)'],
+    acessLink: 'https://www.mediafire.com/file/ey4knbbhotr54r9/keyManager-app.apk/file'
+  }
 ];
