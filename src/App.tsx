@@ -75,7 +75,7 @@ export default function App() {
 
   useEffect(() => {
     typewriterAnimation({
-      text: 'Desenvolvendo sites e aplicativos a mais de 4 meses!',
+      text: 'Desenvolvendo sites e aplicativos a mais de 5 meses!',
       speed: 150,
     });
     const cursorTimer = setInterval(() => {
@@ -198,7 +198,7 @@ export default function App() {
           </p>
           <p>
             Reflexões à parte, venho brincando com código há pelo menos dois anos, mas comecei a
-            levar a sério mesmo há cerca de quatro meses.
+            levar a sério mesmo há cerca de cinco meses.
           </p>
           <p>
             Iniciei minha jornada com Python para aprender a lógica da programação. Depois,
@@ -231,7 +231,7 @@ export default function App() {
         </h1>
         <ProjectGroup projects={projects} onImageClick={setSelectedImage} />
       </section>
-
+      
       {selectedImage && (
         <div
           onClick={() => setSelectedImage(null)}

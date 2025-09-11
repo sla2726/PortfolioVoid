@@ -1,4 +1,4 @@
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, Github } from 'lucide-react';
 import GlitchText from './GlitchText';
 
 type Project = {
@@ -7,6 +7,7 @@ type Project = {
 	description: string;
 	tecno: string[];
 	acessLink: string;
+	githubAcessLink: string;
 };
 
 export default function ProjectGroup({
@@ -16,20 +17,21 @@ export default function ProjectGroup({
 	projects: Project[];
 	onImageClick: (img: string[]) => void;
 }) {
-	const name = projects[0].name;
+
 
 	return (
-		<section
-			key={name}
-			className="font-oswald relative mx-auto mt-2 flex w-5/6 flex-col rounded-md border border-dotted border-red-500 bg-slate-950 px-2 pt-2 pb-4 transition-transform duration-300 hover:scale-105 default-border">
-			<div className="font-londrina-solid mx-auto w-2/5 text-3xl font-bold">
+		<div className="flex flex-col gap-12">	
+				{projects.map((project, index) => (
+					<section
+			key={project.name}
+			className="font-oswald relative mx-auto mt-2 flex w-5/6 flex-col rounded-md bg-slate-950 px-2 pt-2 pb-4 transition-transform duration-300 hover:scale-105 default-border">
+		
+					<div className="font-londrina-solid mx-auto w-2/5 text-3xl font-bold">
 				<div className="flex justify-center rounded border border-dotted border-red-500 bg-red-500/60 uppercase">
-					<GlitchText text={name} intervalMs={5000} />
+					<GlitchText text={project.name} intervalMs={5000} />
 				</div>
 			</div>
 
-			<div className="gap-6">
-				{projects.map((project, index) => (
 					<div key={index} className="font-oswald">
 						<div className="custom-scrollbar overflow-x-auto whitespace-nowrap">
 							{project.images.map((img, i) => (
@@ -54,19 +56,28 @@ export default function ProjectGroup({
 
 						<p className="mb-2 px-2 pt-4 md:text-2xl">{project.description}</p>
 
-						<div className="flex- flex items-center justify-center">
+						<div className="flex flex-row items-center justify-center gap-4">
+							<a
+								href={project.githubAcessLink}
+								target="_blank"
+								rel="noopener noreferrer"
+								aria-label={`Acessar o código ${project.name}`}
+								className="flex w-2/4 py-2 gap-2 items-center justify-center rounded-md border border-red-500 bg-red-500/60 transition-all duration-300 hover:scale-105 hover:mx-1 md:text-2xl">
+								<Github /> Acessar código
+							</a>
 							<a
 								href={project.acessLink}
 								target="_blank"
 								rel="noopener noreferrer"
 								aria-label={`Acessar o projeto ${project.name}`}
-								className="inline-flex w-3/4 items-center justify-center gap-2 rounded-md border border-red-500 bg-red-500/60 py-2 text-center transition-transform duration-300 hover:scale-105 md:text-2xl">
+								className="flex w-3/4 py-2 gap-2 items-center justify-center rounded-md border border-red-500 bg-red-500/60 transition-all duration-300 hover:scale-105 hover:mx-1 md:text-2xl">
 								<ExternalLink /> Acessar projeto
 							</a>
 						</div>
-					</div>
+					</div>  
+					</section>
 				))}
-			</div>
-		</section>
+			
+		</div>
 	);
 }
